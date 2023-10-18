@@ -1177,6 +1177,14 @@ describe('State', () => {
 })
 
 describe('Asyncronous loading', () => {
+  beforeEach(() => {
+    // Dialog showModal isn't implemented in JSDOM https://github.com/jsdom/jsdom/issues/3294
+    HTMLDialogElement.prototype.showModal = jest.fn(function mock(this: HTMLDialogElement) {
+      // eslint-disable-next-line no-invalid-this
+      this.open = true
+    })
+  })
+
   it('updates aria live region when loading is done', () => {
     function TestTree() {
       const [state, setState] = React.useState<SubTreeState>('loading')

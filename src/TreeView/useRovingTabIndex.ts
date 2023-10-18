@@ -21,6 +21,22 @@ export function useRovingTabIndex({
     preventScroll: true,
     getNextFocusable: (direction, from, event) => {
       if (!(from instanceof HTMLElement)) return
+      // Skip top layer elements
+      try {
+        // These need to be separate if conditions as different
+        // browsers may or may not support them.
+        if (from.closest('dialog[open]')) {
+          return
+        }
+        if (from.closest(':popover-open')) {
+          return
+        }
+        if (from.closest('.:popover-open')) {
+          return
+        }
+      } catch {
+        // Don't return
+      }
 
       return getNextFocusableElement(from, event) ?? from
     },

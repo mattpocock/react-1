@@ -4,6 +4,14 @@ import React from 'react'
 import {ErrorDialog} from '../ErrorDialog'
 
 describe('Table.ErrorDialog', () => {
+  beforeEach(() => {
+    // Dialog showModal isn't implemented in JSDOM https://github.com/jsdom/jsdom/issues/3294
+    HTMLDialogElement.prototype.showModal = jest.fn(function mock(this: HTMLDialogElement) {
+      // eslint-disable-next-line no-invalid-this
+      this.open = true
+    })
+  })
+
   it('should use a default title of "Error" if `title` is not provided', () => {
     render(<ErrorDialog />)
     expect(

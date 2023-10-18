@@ -72,6 +72,14 @@ const ShorthandHookFromActionMenu = () => {
 }
 
 describe('ConfirmationDialog', () => {
+  beforeEach(() => {
+    // Dialog showModal isn't implemented in JSDOM https://github.com/jsdom/jsdom/issues/3294
+    HTMLDialogElement.prototype.showModal = jest.fn(function mock(this: HTMLDialogElement) {
+      // eslint-disable-next-line no-invalid-this
+      this.open = true
+    })
+  })
+
   behavesAsComponent({
     Component: ConfirmationDialog,
     toRender: () => <Basic />,

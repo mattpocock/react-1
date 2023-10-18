@@ -60,7 +60,7 @@ export default {
 export const Playground: StoryFn = args => {
   const {trailingVisualCount, ...rest} = args
   return (
-    <Button {...rest}>
+    <Button {...rest} autoFocus={true}>
       Default
       {typeof trailingVisualCount === 'undefined' ? null : <Button.Counter>{trailingVisualCount}</Button.Counter>}
     </Button>
