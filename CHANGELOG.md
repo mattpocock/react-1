@@ -1,5 +1,17 @@
 # @primer/components
 
+## 36.1.1
+
+### Patch Changes
+
+- [#3895](https://github.com/primer/react/pull/3895) [`9daea96b`](https://github.com/primer/react/commit/9daea96bd25310420b729125f187a25ddcbdd971) Thanks [@cs25-esc](https://github.com/cs25-esc)! - AvatarStack: Both `disableExpand` and `rightAlign` can be passed together now
+
+- [#3667](https://github.com/primer/react/pull/3667) [`791c9838`](https://github.com/primer/react/commit/791c983846115438bbea54768b73272260736007) Thanks [@six7](https://github.com/six7)! - Changes visual appearance of MarkdownEditor
+
+  <!-- Changed components: MarkdownEditor -->
+
+- [#3910](https://github.com/primer/react/pull/3910) [`988b297d`](https://github.com/primer/react/commit/988b297d7c42da662326d2255360d24f0b01fe98) Thanks [@broccolinisoup](https://github.com/broccolinisoup)! - Tooltip (draft): Do not expose the tooltip text to AT when it is not visible
+
 ## 36.1.0
 
 ### Minor Changes
